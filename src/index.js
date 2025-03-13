@@ -27,7 +27,7 @@ connectDB();
 app.use("/api/odds", oddsRoutes);
 
 app.get("/", (req, res) => {
-    res.send("Welcome to the Live Odds API 🚀");
+    res.send("Welcome to the Live Odds API");
 });
 
 io.on("connection", (socket) => {
@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
     sendLatestOdds();
 
     socket.on("disconnect", () => {
-        console.log("⚡ Client disconnected:", socket.id);
+        console.log("Client disconnected:", socket.id);
     });
 });
 setInterval(async () => {
